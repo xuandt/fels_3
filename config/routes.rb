@@ -1,4 +1,7 @@
 Fels3::Application.routes.draw do
+  get "words/new"
+  get "lessons/new"
+  get "categories/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   
