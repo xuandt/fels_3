@@ -13,11 +13,11 @@ end
 end
 
 (1..30).each do |i| 
-  Lesson.create(user_id: i, category_id: i)
+  Lesson.create(user_id: i, category_id: i, count_correct: "15")
 end
 
 (1..100).each do |i| 
-  Word.create(word: "word#{i}", description: "this is rails app")
+  Word.create(word: "word#{i}", meaning: "meaning_word#{i}", category_id: "5")
 end
 
 (1..100).each do |i| 
