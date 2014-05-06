@@ -4,7 +4,7 @@ Fels3::Application.routes.draw do
   get "categories/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  
+  resources :categories, only: [:new, :show, :index]
   root  'static_pages#home'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
