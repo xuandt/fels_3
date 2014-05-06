@@ -1,0 +1,6 @@
+<li>
+ <%= link_to word.word, word %>
+  :<%= word.meaning%>
+  |<%= link_to "edit", edit_admin_word_path(word.id) %>
+  |<%= link_to "delete", word, method: :delete, data: { confirm: "You sure?" } %>
+</li>
