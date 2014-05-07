@@ -1,11 +1,12 @@
 <% provide(:title, 'All categories') %>
 <h1>All categories</h1>
 
+<%= will_paginate %>
 <ul class="categories">
   <% @categories.each do |category| %>
-    <li>
-      
+    <li>     
       <%= link_to category.name, category %>
     </li>
   <% end %>
 </ul>
+<%= will_paginate %>

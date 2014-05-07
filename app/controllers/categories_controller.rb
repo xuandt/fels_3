@@ -1,10 +1,8 @@
 class CategoriesController < ApplicationController
-  def new
-  end
   def show
-  	@categories = Category.find(:all)
+    @categories = Category.find params[:id]
   end
   def index
-  	@categories = Category.all 
+    @categories = Category.paginate page: params[:page]
   end
 end
