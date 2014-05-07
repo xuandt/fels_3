@@ -7,6 +7,7 @@ Fels3::Application.routes.draw do
     resources "sessions", only: [:new, :create, :destroy]
     resources :users
     resources :words
+    resources :categories
     match "/signin", to: "sessions#new", via: "get"
     match "/signout", to: "sessions#destroy", via: "delete"
   end
