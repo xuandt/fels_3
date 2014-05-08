@@ -3,8 +3,13 @@ class WordsController < ApplicationController
     @word = Word.find params[:id]
   end
 
-  def index
-    @words = Word.paginate page: params[:page]
+  def index 
+    if params[:category_id]
+      category = Category.find params[:category_id] 
+      @words = category.words
+    else
+      @words = Word.paginate page: params[:page]
+    end
   end
 
   private
