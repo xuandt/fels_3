@@ -14,8 +14,26 @@
 
       <%= f.label :category %>
       <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: "Select please") %>
+      <%= f.label :option %>
+      <table style="text-align: center" border="1">
+        <thead>
+          <tr>
+            <th>Answer</th>
+            <th>Correct</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= f.fields_for :options,@word.options do |builder| %>
+            <tr>
+              <%= builder.hidden_field :word_id, value: @word.id %>
+              <td><%= builder.text_field :answer %></td>
+              <td><%= builder.text_field :correct %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Save change", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

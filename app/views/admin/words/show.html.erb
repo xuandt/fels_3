@@ -1,5 +1,23 @@
 <% provide(:title, @word.word) %>
 <h1><%= @word.word %></h1>
 
-Content : <%= @word.word %>
-Meaning : <%= @word.meaning %>
+Content : <%= @word.word %><br>
+Meaning : <%= @word.meaning %><br>
+Category : <%= @word.category.name %><br>
+Options :<br>
+  <table style="text-align: center" border="1">
+    <thead>
+      <tr>
+        <th>Answer</th>
+        <th>Correct</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for option in @word.options %>
+        <tr>
+          <td><%= option.answer %></td>
+          <td><%= option.correct %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
