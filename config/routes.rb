@@ -1,5 +1,7 @@
 Fels3::Application.routes.draw do
-  resources :users
+  resources :users do
+    resources :lessons, only: [:new, :show, :index]
+  end
   resources :words
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -13,6 +15,7 @@ Fels3::Application.routes.draw do
   end
   
   resources :categories, only: [:new, :show, :index]
+  resources :lessons, only: [:new, :show, :index]
   root  'static_pages#home'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
@@ -20,5 +23,5 @@ Fels3::Application.routes.draw do
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
-  
+    
 end

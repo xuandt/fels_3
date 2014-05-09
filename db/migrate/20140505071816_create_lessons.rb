@@ -7,5 +7,6 @@ class CreateLessons < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :lessons, [:user_id, :category_id]
   end
 end

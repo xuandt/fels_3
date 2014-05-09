@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20140505071923) do
     t.datetime "updated_at"
   end
 
+  add_index "lessons", ["user_id", "category_id"], name: "index_lessons_on_user_id_and_category_id", using: :btree
+
   create_table "options", force: true do |t|
     t.integer  "word_id"
     t.string   "answer"
